@@ -1,7 +1,6 @@
 package com.purplefrog.jwavefrontobj;
 
-import javafx.geometry.*;
-
+import java.awt.geom.*;
 import java.util.*;
 
 /**
@@ -67,7 +66,7 @@ public class WavefrontOBJWriter
         StringBuilder rval = new StringBuilder();
 
         for (Point3D v : vertices) {
-            rval.append("v "+v.getX()+" "+v.getY()+" "+v.getZ()+"\n");
+            rval.append("v "+v.x+" "+v.y+" "+v.z+"\n");
         }
 
         rval.append("\n");
@@ -112,7 +111,7 @@ public class WavefrontOBJWriter
 
     private int getTextureCoordIndex(double u, double v)
     {
-        Point2D key = new Point2D(u, v);
+        Point2D key = new Point2D.Double(u, v);
 
         Integer rval = textureCoordMap.get(key);
         if (null==rval) {
